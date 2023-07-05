@@ -18,7 +18,7 @@ def get_file_info(url, file_path):
     filename = os.path.basename(url)
 
     # 打印文件名、大小和访问路径
-    print(f"文件名：{urllib.parse.unquote(filename)}，\n大小：{content_length} 字节，路径：{base_url+'/'+urllib.parse.unquote(file_path)}")
+    print(f"文件名：{urllib.parse.unquote(filename)}，\n大小：{content_length} 字节，路径：{base_url+'/'+urllib.parse.unquote(file_path)+urllib.parse.unquote(filename)}")
 
 def crawl_website(url, file_path=""):
     # 发送 GET 请求获取网页内容
@@ -35,6 +35,8 @@ def crawl_website(url, file_path=""):
         # 获取链接的相对路径
         href = link.get("href")
         # 拼接完整 URL
+        if href == "/" :
+            break
         url = f"{base_url}/{href}"
 
         # 判断是否为文件夹
