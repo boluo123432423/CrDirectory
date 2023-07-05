@@ -6,8 +6,6 @@ import urllib
 from urllib import parse
 import argparse
 
-# 网站的根 URL
-#base_url = "http://172.18.238.62"
 
 def get_file_info(url, file_path):
     # 发送 HEAD 请求获取文件大小
