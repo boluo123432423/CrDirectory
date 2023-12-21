@@ -36,12 +36,10 @@ def crawl_website(url, old_path,file_path=""):
             break
         new_url = f"{url}/{href}"
         if href.endswith("/"):
-            print(href+"是文件夹")
 
             folder_path = os.path.join(file_path, href)
             crawl_website(new_url, file_path, folder_path)
         else:
-            print(href + "不是文件夹")
             get_file_info(new_url, file_path)
 
 parser = argparse.ArgumentParser(description='检测一个url')
